@@ -22,7 +22,7 @@ const sess = {
     secure: false,
     // is able to deliver to other domain site
     sameSite: 'strict',
-  },  resave: false,
+  }, resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,

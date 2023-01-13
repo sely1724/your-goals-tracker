@@ -3,6 +3,17 @@ const sequelize = require('../config/connection');
 
 class Goal extends Model { }
 
+/*
+
+GOAL ------
+   id: int, PK
+   content: str
+   finish_by: date
+   completed: bool
+   user_id: int
+
+*/
+
 Goal.init(
    {
       id: {
@@ -16,7 +27,7 @@ Goal.init(
          allowNull: false
       },
       finish_by: {
-         type: DataTypes.DATE,
+         type: DataTypes.DATEONLY,
          allowNull: false,
       },
       completed: {
