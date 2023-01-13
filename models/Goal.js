@@ -38,3 +38,5 @@ Goal.init(
       timestamps: true,
    }
 )
+
+module.exports = Goal;
