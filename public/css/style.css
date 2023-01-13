@@ -79,6 +79,13 @@ cursor: pointer;
 box-shadow: inset 0px 0px 8px rgb(38, 241, 197), 0 0 15px rgb(21, 230, 150);
 } */
 
+.user-card-wrapper {
+display: flex;
+align-items: center;
+margin-left: 100px;
+width: 100%;
+}
+
 /* Sets navigation position */
 .header nav {
 float: right;
@@ -95,7 +102,6 @@ list-style-type: none;
 font-size: 22px;
 }
 
-
 .btn-no-style {
 background: none;
 border: none;
@@ -107,9 +113,14 @@ transition: color 0.1s;
 margin-left: 16px;
 }
 
-.parent {
-display: flex;
-}
+/* 
+/* LAYOUT */
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  align-items: center;
+  } 
 
 /* CARDS */
 .card {
@@ -119,19 +130,6 @@ border: 7px double var(--dark);
 border-radius: 10px;
 background-color: var(--light);
 color: var(--dark);
-}
-
-.login-card {
-margin: 0 0 20px 0;
-flex: 0 0 50%;
-max-width: 50%;
-padding: 5px;
-border: 3px solid var(--dark);
-border-radius: var(--border-radius);
-border-style: double;
-border-width: thick;
-background-color: #577a7c;
-color: var(--light);
 }
 
 .card header {
@@ -150,21 +148,12 @@ text-align: center;
 font-weight: bold;
 }
 
-/* LAYOUT */
-.container {
-display: flex;
-flex-flow: column wrap;
-align-content: flex-start;
-align-items: center;
-}
-
-
 /*  Contact me section */
 footer {
 display: flex;
 flex-direction: row;
-align-content: center;
+justify-content: center;
 height: 70px;
-margin-top: 1.5rem;
+margin-top: 3rem;
 font-size: 1.6rem;
 }
