@@ -26,31 +26,66 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET DASHBOARD - have to login to have dashboard
-router.get("/dashboard", async (req, res) => {
+// GET individual goal post
+router.get("/:id", async (req, res) => {
   try {
-    // don't think this is actually necessary because we can use a helper here??
-    // so when we go to render to handlebars, a helper will run 1st to double check user login = true
+    if (!req.session.user.loggedIn) {
+      console.log("Please log in or create an account");
+      res.redirect("/");
+    } else {
+      const dbGoalData = await Goal.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ["id", "name"],
+          },
+        ],
+      });
 
-    // if (!req.session.user) {
-    //   return res.redirect("/login");
-    // }
-    const dbDashboard = await BlogPosts.findAll({
-      where: {
-        user_id: req.session.users.id, //TODO set up session.user obj in user routes
-      },
+      const goal = dbGoalData.get({ plain: true });
+      // Send over the 'loggedIn' session variable to the 'gallery' template
+      res.render("individual-user", { goal, loggedIn: req.session.loggedIn });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-      include: [
-        {
-          model: Users,
-          attributes: ["username"], // include username, date? tbd
-        },
-      ],
-    });
+// GET personal page - have to login to be able to access this page
+router.get("/userpage", async (req, res) => {
+  try {
+    if (!req.session.user.loggedIn) {
+      console.log("Please log in or create an account");
+      res.redirect("/");
+    } else {
+      const userData = await User.findByPk(req.session.user.id, {
+        include: { all: true },
+      });
+      const hbsData = userData.get({ plain: true });
+      hbsData.loggedIn = true;
+      res.render("userpage", hbsData);
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-    const dashboard = dbDashboard.get({ plain: true });
-    // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render("dashboard", { dashboard, loggedIn: req.session.loggedIn });
+// GET list of users - have to login to be able to access this page
+router.get("/allUsers", async (req, res) => {
+  try {
+    if (!req.session.user.loggedIn) {
+      console.log("Please log in or create an account");
+      res.redirect("/");
+    } else {
+      const userData = await User.findByPk(req.session.user.id, {
+        include: { all: true },
+      });
+      const hbsData = userData.get({ plain: true });
+      hbsData.loggedIn = true;
+      res.render("userpage", hbsData);
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
