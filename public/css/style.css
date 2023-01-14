@@ -39,6 +39,7 @@ header {
 
 h1 {
   display: flex;
+  color: rgb(138, 178, 174)
 }
 
 main {
@@ -47,14 +48,6 @@ main {
   flex-grow: 1;
 }
 
-header a,
-a:link,
-a:focus,
-a:active {
-  color: rgb(138, 178, 174);
-  text-decoration: none;
-  cursor: pointer;
-}
 
 .header nav {
   float: right;
@@ -85,7 +78,8 @@ a:active {
   margin-top: 30px;
   display: flex;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 10px;
+  justify-content: center;
 }
 .parent {
   display: flex;
@@ -93,7 +87,7 @@ a:active {
 
 .card {
   margin: 20px;
-  width: 400px;
+  width: 75%;
   border: 7px double
     var(--dark);
   border-radius: 10px;
