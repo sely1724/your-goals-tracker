@@ -10,13 +10,49 @@
 }
 
 body {
-font-family: Arial;
-margin: 0;
-display: flex;
-flex-direction: column;
-min-height: 100vh;
-justify-content: flex-start;
-background-color: var(--quatrinary);
+  update-css
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background-color: var(
+    --quatrinary
+  );
+}
+
+a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+header {
+  padding: 40px;
+  text-align: center;
+  background: var(--primary);
+  color: var(--light);
+}
+
+h1 {
+  display: flex;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+  background-color: var(--quatrinary);
 }
 
 /* Sets brand criteria */
@@ -64,11 +100,47 @@ flex-wrap: wrap;
 flex-grow: 1;
 }
 
-/* Chages link color to turquoise plus additional criteria */
 header a,
 a:link,
 a:focus,
 a:active {
+  color: rgb(138, 178, 174);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header nav {
+  float: right;
+  margin-right: 40px;
+  margin-top: -70px;
+}
+
+.header nav li {
+  display: inline-block;
+  margin-left: 25px;
+  margin-top: 25px;
+  list-style-type: none;
+  font-size: 22px;
+}
+
+.btn-no-style {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 100%;
+  transition: color 0.1s;
+  margin-left: 16px;
+}
+
+.user-card-wrapper {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+}
+.parent {
 color: rgb(138, 178, 174);
 text-decoration: none;
 cursor: pointer;
@@ -157,3 +229,57 @@ height: 70px;
 margin-top: 3rem;
 font-size: 1.6rem;
 }
+
+.card {
+  margin: 20px;
+  width: 400px;
+  border: 7px double
+    var(--dark);
+  border-radius: 10px;
+  background-color: var(
+    --light
+  );
+  color: var(--dark);
+}
+
+.card-body {
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+footer {
+  display: flex;
+  color: darkgrey;
+  justify-content: center;
+  height: 70px;
+  margin-top: 1.5rem;
+  font-size: 1.6rem;
+}
+
+/* Styling Heart */
+.bi-heart {
+  color: red;
+  font-size: 250px;
+  height: 20px;
+  width:20px;
+  /* Animating heart */
+  animation: pulse 1.5s linear infinite;
+}
+
+@keyframes pulse {
+  0%{
+    transform: scale(1);
+    opacity: 0;
+  }
+  50%{
+    transform: scale(1.3);
+    opacity:1;
+  }
+  100%{
+    transform: scale(1);
+    opacity:0;
+  }
+}
+
+
