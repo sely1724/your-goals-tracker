@@ -14,7 +14,7 @@ class User extends Model {
 
 USER ------
    id: int, PK
-   name: str(unique)
+   username: str(unique)
    email: str(email)
    password: str(len>=8)
 
@@ -28,7 +28,7 @@ User.init(
          primaryKey: true,
          autoIncrement: true
       },
-      name: {
+      username: {
          type: DataTypes.STRING,
          allowNull: false,
          unique: true
