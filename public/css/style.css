@@ -1,9 +1,9 @@
 :root {
-  --primary: #3d5852;
-  --secondary: #86938f;
-  --tertiary: #5e877f;
-  --quatrinary: #6c6b67;
-  --light: #e3e4e3;
+  --primary: #4e6f68;
+  --secondary: #adb8b5;
+  --tertiary: #65948a;
+  --quatrinary: #b2b2ae;
+  --light: #e5e9e5;
   --dark: #182c23;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
@@ -111,7 +111,7 @@ a:active {
 
 footer {
   display: flex;
-  color: darkgrey;
+  color: rgb(115, 114, 114);
   justify-content: center;
   height: 70px;
   margin-top: 1.5rem;
