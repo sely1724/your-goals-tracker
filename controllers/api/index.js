@@ -1,12 +1,14 @@
 const router = require('express').Router();
 
-const userPage = require('./userpage');
-const login = require('./login');
-const allUsers = require('./allusers');
+const commentRoutes = require('./comment-routes');
+const goalRoutes = require('./goal-routes');
+const milestoneRoutes = require('./milestone-routes');
+const userRoutes = require('./user-routes');
 
 
-router.use('/userpage', userPage);
-router.use('/login', login);
-router.use('/allusers', allUsers);
+router.use('/comment', commentRoutes);
+router.use('/goal', goalRoutes);
+router.use('/milestone', milestoneRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;
