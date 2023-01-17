@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Milestone } = require('../../models');
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     // create a new milestone
   
     /* req.body should look like this...
@@ -11,18 +11,27 @@ router.post('/', (req, res) => {
         "goal_id": 2
       }
     */
-    // create a new milestone
-    Milestone.create(req.body)
-    .then((milestone) => {
-      res.status(200).json(milestone);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
+   try {
+    const dbMilestoneData = await Milestone.create({
+        // (content, date, goal_id) should be provided from /public/js folder during fetch request 
+        // in JSON.stringify({ content, date, goal_id})
+        content: req.body.content,
+        date_completed: req.body.date,
+        goal_id: req.body.goal_id,
+        // user_id: req.session.userId,  // if needed user ID from the cookies
     });
+    
+        res
+        .status(200)
+        .json({comment: dbMilestoneData, message: 'Your milestone is saved!'} );
+
+    } catch(err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
   });
   
-  router.put('/:id', (req, res) => {
+  router.put('/:id', async (req, res) => {
     // update a milestone by its `id` value
 
     /* req.body should look like this...
@@ -33,7 +42,7 @@ router.post('/', (req, res) => {
       }
     */
 
-    Milestone.update(req.body, {
+    /*Milestone.update(req.body, {
       where: {
         id: req.params.id,
       },
@@ -44,7 +53,28 @@ router.post('/', (req, res) => {
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
-    });
+    });*/
+
+    try {
+        const dbMilestoneData = await Milestone.update({
+            // (content, date, goal_id) should be provided from /public/js folder during fetch request 
+            // in JSON.stringify({ content, date, goal_id})
+            content: req.body.content,
+            date_completed: req.body.date,
+            goal_id: req.body.goal_id,
+            // user_id: req.session.userId,  // if needed user ID from the cookies
+        },
+        { where: { id: req.params.id  } });
+        
+            res
+            .status(200)
+            .json({comment: dbMilestoneData, message: 'Your milestone is updated!'} );
+    
+        } catch(err) {
+          console.log(err);
+          res.status(500).json(err);
+        }
+    
   });
   
   router.delete('/:id', async (req, res) => {
