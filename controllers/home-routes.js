@@ -6,20 +6,26 @@ const { Goal, User } = require("../models");
 // GET all goals
 router.get("/", async (req, res) => {
   try {
-    const goalData = await Goal.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ["id", "name"],
-        },
-      ],
-    });
+    let loggedIn = false
+    // const goalData = await Goal.findAll({
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ["id", "name"],
+    //     },
+    //   ],
+    // });
 
-    const goalDisplay = goalData.map((goal) => goal.get({ plain: true }));
+    // const goalDisplay = goalData.map((goal) => goal.get({ plain: true }));
     // Send goalDisplay information to the 'homepage' template
-    res.render("homepage", {
-      goalDisplay,
-    });
+    if (loggedIn) {
+      res.render("homepage", {
+      loggedIn: true,
+      });
+    } else {
+      res.render('login', {})
+
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
