@@ -7,6 +7,7 @@ const signupUsernameInputEl = Document.querySelector("#username-signup");
 const signupEmailInputEl = Document.querySelector("#email-signup");
 const signupPasswordInputEl = Document.querySelector("#password-signup");
 
+if (email && password) {
 const login = async (user) => {
    fetch('/api/user/login', {
       method: 'POST',
@@ -17,6 +18,4 @@ const login = async (user) => {
    })
 };
 
-const signup = async (user) => {
-   
-}
+const signup = async (user) => 
