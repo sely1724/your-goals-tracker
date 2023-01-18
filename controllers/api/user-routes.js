@@ -65,6 +65,13 @@ router.post('/signup', async (req, res) => {
       email: req.body.email,
       password: req.body.email
     });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+
+      res.status(200).json(dbUserData);
+    });
+
     res.status(200).json({ comment: dbUserData, message: 'New account created!' });
   } catch (err) {
     console.log(err);
