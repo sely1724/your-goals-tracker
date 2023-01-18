@@ -108,4 +108,48 @@ router.get("/logout", (req, res) => {
   res.render("logout");
 });
 
+// get one goal by its ID
+router.get('/goal/:id', async (req, res) => {
+  try {
+    const dbGoal = await Goal.findByPk(req.params.id, {
+      
+      include: [
+        {
+          model: User,
+          attributes: [
+            'id',
+            'username',
+          ],
+        },
+        {
+          model: Comment,
+          attributes: [
+            'id',
+            'content',
+            // 'created_at',
+          ],
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id',
+                'username',
+              ],
+            }
+          ],
+        },
+      ],
+    });
+
+    const goal = dbGoal.get({ plain: true });
+    // Send over the 'loggedIn' session variable to the 'post' template
+
+console.log(goal);
+    res.render('homepage_comment', { goal, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
