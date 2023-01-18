@@ -55,7 +55,7 @@ router.post('/logout', (req, res) => {
 // Sign up
 router.post('/signup', (req, res) => {
   try {
-    const 
+    
   }
 })
   
