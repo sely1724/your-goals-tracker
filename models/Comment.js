@@ -36,3 +36,5 @@ Comment.init(
       timestamps: true,
    }
 )
+
+module.exports = Comment;

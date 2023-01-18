@@ -32,3 +32,5 @@ Milestone.init(
       timestamps: true,
    }
 )
+
+module.exports = Milestone;
