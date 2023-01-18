@@ -6,18 +6,27 @@ const { Goal, User } = require("../models");
 // GET all goals
 router.get("/", async (req, res) => {
   try {
-    let loggedIn = true
+    // to request existed posts in db with comments to them
+    const dbAllGoals = await Goal.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'username',
+            'id'
+        ],
+        },
+      ],
+    });
 
-    // Send goalDisplay information to the 'homepage' template
-    if (loggedIn) {
-      res.render("homepage", {
-      users,
-      loggedIn: true,
-      });
-    } else {
-      res.render('login', {})
-
-    }
+    const goals = dbAllGoals.map((goal) =>
+      goal.get({ plain: true })
+    );
+console.log(goals);
+    res.render('homepage', { // refers to homepage.handlebars
+      goals,
+      // loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
