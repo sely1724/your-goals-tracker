@@ -48,7 +48,6 @@ main {
   flex-grow: 1;
 }
 
-
 .header nav {
   float: right;
   margin-right: 40px;
@@ -95,6 +94,19 @@ main {
     --light
   );
   color: var(--dark);
+}
+
+
+.login-card {
+  flex: 0 0 50%;
+  max-width: 49%;
+  padding: 5px;
+  border: 3px solid var(--dark);
+  border-radius: var(--border-radius);
+  border-style: double;
+  border-width: thick;
+  background-color: #889191;
+  color: var(--light);
 }
 
 .card-body {
