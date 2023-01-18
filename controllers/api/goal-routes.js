@@ -25,7 +25,7 @@ router.put("/:id", async (req, res) => {
         content: req.body.content,
         finish_by: req.body.finish_by,
         completed: req.body.completed,
-        user_id: req.session.userId,
+        //user_id: req.session.userId,
       },
       {
         where: {
