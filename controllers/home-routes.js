@@ -6,12 +6,12 @@ const { Goal, User } = require("../models");
 // GET all goals
 router.get("/", async (req, res) => {
   try {
-    let loggedIn = true
+    let loggedIn = false
 
     // Send goalDisplay information to the 'homepage' template
     if (loggedIn) {
       res.render("homepage", {
-      users,
+      // users,
       loggedIn: true,
       });
     } else {
