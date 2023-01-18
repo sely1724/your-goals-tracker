@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
       user_id: req.session.userId,
     });
     res.status(200).json(dbGoalData);
+    console.log(dbGoalData);
   } catch (error) {
     res.status(500).json(error);
   }

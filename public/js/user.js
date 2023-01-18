@@ -8,15 +8,9 @@
 const goalPostHandler = async (event) => {
   event.preventDefault();
 
-  const content = document
-    .querySelector(/*waiting for handlebars names*/)
-    .value.trim();
-  const finish_by = document
-    .querySelector(/*waiting for handlebars names*/)
-    .value.trim();
-  const completed = document
-    .querySelector(/*waiting for handlebars names*/)
-    .value.trim();
+  const content = document.querySelector("#content").value.trim();
+  const finish_by = document.querySelector("#finish-date").value.trim();
+  const completed = document.querySelector("#finish-date").value.trim();
   //userid not necessary
 
   const response = await fetch("/api/goal/", {
@@ -169,8 +163,8 @@ const milestoneDeleteHandler = async (event) => {
 
 //listen for goal post
 document
-  .querySelector(/*waiting for handlebars names*/) //since it's a form listen for the entire form click.
-  .addEventListener("click", goalPostHandler); //likely "submit" instead of click.
+  .querySelector(".create-post") //since it's a form listen for the entire form click.
+  .addEventListener("submit", goalPostHandler); //likely "submit" instead of click.
 
 //listen for goal update
 document
