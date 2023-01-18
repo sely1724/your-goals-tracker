@@ -7,19 +7,11 @@ const { Goal, User } = require("../models");
 router.get("/", async (req, res) => {
   try {
     let loggedIn = true
-    // const goalData = await Goal.findAll({
-    //   include: [
-    //     {
-    //       model: User,
-    //       attributes: ["id", "name"],
-    //     },
-    //   ],
-    // });
 
-    // const goalDisplay = goalData.map((goal) => goal.get({ plain: true }));
     // Send goalDisplay information to the 'homepage' template
     if (loggedIn) {
       res.render("homepage", {
+      users,
       loggedIn: true,
       });
     } else {
@@ -81,20 +73,19 @@ router.get("/userpage", async (req, res) => {
 // GET list of users - have to login to be able to access this page
 router.get("/allUsers", async (req, res) => {
   try {
-    //fetching all users from database
-    const allUsers = await User.findAll();
-    res.render("all-users", allUsers);
-    // if (!req.session.user.loggedIn) {
-    //   console.log("Please log in or create an account");
-    //   res.redirect("/");
-    // } else {
-    //   const userData = await User.findByPk(req.session.user.id, {
-    //     include: { all: true },
-    //   });
-    //   const hbsData = userData.get({ plain: true });
-    //   hbsData.loggedIn = true;
-    //   res.render("userpage", hbsData);
-    // }
+    // get data from database
+    const userData = await User.findAll({
+    });
+   
+    // Turn data into serialized json
+    const users = userData.map((user) => user.get({ plain: true }));
+    console.log("THIS IS USER DATA!", users);
+
+  // Pass serialized data into all-users
+    res.render("all-users", {
+      users,
+      loggedIn: true,
+      });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
