@@ -6,11 +6,43 @@ const { Goal, User } = require("../models");
 // GET all goals
 router.get("/", async (req, res) => {
   try {
+    // to request existed goals in db with comments to them
+    const dbAllGoals = await Goal.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'id',
+            'username',
+          ],
+        },
+      ],
+    });
+
+    const goals = dbAllGoals.map((goal) =>
+      goal.get({ plain: true })
+    );
+console.log(goals);
+    res.render('homepage', { // refers to homepage.handlebars
+      goals,
+      // loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
+
+// get user's goals for Dashboard page Maksim: added dashboard before "/" and res.render("dashboard") 
+router.get("dashboard/", async (req, res) => {
+  try {
     let loggedIn = false
 
     // Send goalDisplay information to the 'homepage' template
     if (loggedIn) {
-      res.render("homepage", {
+      res.render("dashboard", {
       // users,
       loggedIn: true,
       });
