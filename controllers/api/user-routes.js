@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { STRING } = require('sequelize');
 const { User } = require('../../models');
 
 // Login
