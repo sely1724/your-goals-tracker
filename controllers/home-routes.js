@@ -6,7 +6,7 @@ const { Goal, User } = require("../models");
 // GET all goals
 router.get("/", async (req, res) => {
   try {
-    let loggedIn = false
+    let loggedIn = true
     // const goalData = await Goal.findAll({
     //   include: [
     //     {
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET individual goal post
-router.get("/:id", async (req, res) => {
+router.get("user/:id", async (req, res) => {
   try {
     if (!req.session.user.loggedIn) {
       console.log("Please log in or create an account");
@@ -61,7 +61,7 @@ router.get("/:id", async (req, res) => {
 // GET personal page - have to login to be able to access this page
 router.get("/userpage", async (req, res) => {
   try {
-    if (!req.session.user.loggedIn) {
+    if (req.session && !req.session.user.loggedIn) {
       console.log("Please log in or create an account");
       res.redirect("/");
     } else {
@@ -81,17 +81,20 @@ router.get("/userpage", async (req, res) => {
 // GET list of users - have to login to be able to access this page
 router.get("/allUsers", async (req, res) => {
   try {
-    if (!req.session.user.loggedIn) {
-      console.log("Please log in or create an account");
-      res.redirect("/");
-    } else {
-      const userData = await User.findByPk(req.session.user.id, {
-        include: { all: true },
-      });
-      const hbsData = userData.get({ plain: true });
-      hbsData.loggedIn = true;
-      res.render("userpage", hbsData);
-    }
+    //fetching all users from database
+    const allUsers = await User.findAll();
+    res.render("all-users", allUsers);
+    // if (!req.session.user.loggedIn) {
+    //   console.log("Please log in or create an account");
+    //   res.redirect("/");
+    // } else {
+    //   const userData = await User.findByPk(req.session.user.id, {
+    //     include: { all: true },
+    //   });
+    //   const hbsData = userData.get({ plain: true });
+    //   hbsData.loggedIn = true;
+    //   res.render("userpage", hbsData);
+    // }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
