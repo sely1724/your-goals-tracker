@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 // require in models
-const { Goal, User } = require("../models");
+const { Goal, User, Comment } = require("../models");
 
 // GET all goals
 router.get("/", async (req, res) => {
@@ -184,12 +184,12 @@ router.get("/goal/:id", async (req, res) => {
             "content",
             // 'created_at',
           ],
-          include: [
+          /*include: [
             {
               model: User,
               attributes: ["id", "username"],
             },
-          ],
+          ],*/
         },
       ],
     });
@@ -198,7 +198,7 @@ router.get("/goal/:id", async (req, res) => {
     // Send over the 'loggedIn' session variable to the 'post' template
 
     console.log(goal);
-    res.render("homepage_comment", { goal, loggedIn: req.session.loggedIn });
+    res.render("homepage_comment", { goal, /*loggedIn: req.session.loggedIn*/ });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
