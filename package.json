@@ -13,5 +13,20 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.2.5",
     "sequelize": "^6.28.0"
-  }
+  },
+  "name": "your-goals-tracker",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sely1724/your-goals-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sely1724/your-goals-tracker/issues"
+  },
+  "homepage": "https://github.com/sely1724/your-goals-tracker#readme"
 }
