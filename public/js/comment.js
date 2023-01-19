@@ -6,7 +6,7 @@ console.log(event.target[1].dataset);
     const comment = document.querySelector('#user-comment').value.trim();
     const goalId = event.target[1].dataset.postId;
 
-    console.log(goalId);
+    console.log(comment);
 
     // if (comment) {
     if (comment) {
@@ -17,7 +17,7 @@ console.log(event.target[1].dataset);
       });
   
       if (response.ok) {
-        document.location.replace(`/post/${goalId}`);
+        document.location.replace(`/goal/${goalId}`);
       } else {
         alert('Failed to save comment.');
       }

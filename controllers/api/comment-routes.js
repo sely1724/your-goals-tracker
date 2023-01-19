@@ -4,31 +4,13 @@ const { Comment } = require('../../models');
 // POST route to create a new comment
 router.post('/:id', async (req, res) => {
     // create a new comment
-  
-    /* req.body should look like this...
-      {
-        "content": "New Comment",
-        "user_id": 1,
-        "goal_id": 2
-      }
-    */
-    // create a new milestone
-    /*Comment.create(req.body)
-    .then((comment) => {
-      res.status(200).json(comment);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });*/
-
     try {
         const dbCommentData = await Comment.create({
             // (content, date, goal_id) should be provided from /public/js folder during fetch request 
             // in JSON.stringify({ content, date, goal_id})
-            content: req.body.content,
+            content: req.body.comment,
             user_id: req.body.user_id, // to get from session in cookies 
-            goal_id: req.body.goal_id, // to get from URL in public/js/...
+            goal_id: req.params.id, // to get from URL in public/js/...
             // user_id: req.session.userId,  // if needed user ID from the cookies
         });
         
