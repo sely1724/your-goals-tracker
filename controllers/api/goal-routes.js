@@ -7,8 +7,8 @@ const { Goal } = require("../../models");
 //create from User's Personal Page - we call this
 router.post("/", async (req, res) => {
   try {
-    console.log(req.body);
-    console.log(typeof req.body.completed);
+    //console.log(req.body);
+    //console.log(typeof req.body.completed);
     const dbGoalData = await Goal.create({
       content: req.body.content,
       finish_by: req.body.finish_by,
