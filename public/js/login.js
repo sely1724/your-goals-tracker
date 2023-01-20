@@ -1,4 +1,4 @@
-const { response } = require("express");
+//const { response } = require("express");
 
 const loginFormEl = document.querySelector(".login-form");
 const signupFormEl = document.querySelector(".signup-form");
@@ -58,13 +58,13 @@ const signupFormHandler = async (event) => {
          method: 'POST',
          // compile user info into json object to send
          body: JSON.stringify({
-            username: username,
-            email: email,
-            password: password
+            username,
+            email,
+            password
          }),
-         headers: { 'Content-Type': 'application/json' }
+         headers: { 'Content-Type': 'application/json' },
       });
-
+console.log(response);
       if (response.ok) {
          // if signup was successful, redirect to homepage
          document.location.replace('/');
