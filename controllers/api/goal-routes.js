@@ -6,15 +6,18 @@ const { Goal } = require("../../models");
 //create from User's Personal Page - we call this
 router.post("/", async (req, res) => {
   try {
+    console.log(req.body);
+    console.log(typeof req.body.completed);
     const dbGoalData = await Goal.create({
       content: req.body.content,
       finish_by: req.body.finish_by,
       completed: req.body.completed,
-      user_id: req.session.userId,
+      //user_id: req.session.userId,
     });
     res.status(200).json(dbGoalData);
     console.log(dbGoalData);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 });

@@ -10,7 +10,8 @@ const goalPostHandler = async (event) => {
 
   const content = document.querySelector("#content").value.trim();
   const finish_by = document.querySelector("#finish-date").value.trim();
-  const completed = document.querySelector("#finish-date").value.trim();
+  const completed = document.querySelector("#completed").value == "yes" ? true : false;
+
   //userid not necessary
 
   const response = await fetch("/api/goal/", {

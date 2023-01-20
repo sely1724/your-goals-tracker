@@ -23,8 +23,12 @@
         <section class="flex-row justify-center">
             <form class = "create-post">
                 <input type="text" id="content" placeholder="Your Goal">
-                <input type="text" id="finish-date" placeholder="Finish Date"> <!-- eventually add drop down-->
-                <input type="text" id="completed" placeholder="Completed?"> <!-- eventually add drop down-->
+                <input type="date" id="finish-date" placeholder="Finish Date"> <!-- eventually add drop down-->
+                <select name="yes/no" id="completed">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                 <!-- eventually add drop down-->
                 <button type="submit" id="submit-btn">Submit</button>
             </form>  
         </section>
