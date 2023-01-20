@@ -109,8 +109,9 @@ main {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #889191;
-  color: var(--light);
+  border-color: black;
+  background-color: #b3b395;
+  color: var(--dark);
 }
 
 .card-body {
@@ -120,19 +121,19 @@ main {
 }
 
 .comment-card {
-  margin-left: 225px;
-  width: 100%;
+  width: 75%;
   border: none;
 }
 
 .comment-card-body {
-  border-style: none;
+  border-style: solid;
   padding: 15px;
   width: 100%;
   border-radius: 10px;
   background-color: var(--light);
   color: #6b683d;
   font-size: 1.4rem;
+  margin-left: 105px;
 }
 
 footer {
@@ -162,22 +163,14 @@ footer {
 /* Form text input */
 
 .search-wrapper input {
-  padding-left: 20px;
-  width: 330px;
-  height: 20px;
-  padding: 10px 5px;
+  padding: 1.5rem;
+  width: 75%;
   float: left;   
-  font: bold 15px  'lato', 'lucida sans', 'trebuchet MS', 'Tahoma';
+  font: italic 15px  'lato', 'lucida sans', 'trebuchet MS', 'Tahoma';
   border: 0;
-  background: #fff;
-  border-radius: 40px;
-  border-top-style: none;
-}
-
-.search-wrapper input:focus {
   outline: 0;
   background: #fff;
-  box-shadow: 0 0 2px rgba(0,0,0,0.8) inset;
+  border-radius: .3rem;
 }
 
 .search-wrapper input::-webkit-input-placeholder {
@@ -200,27 +193,7 @@ padding-left: 20px;
   border-style: none;
 }   
 
-/* Form submit button */
-.search-wrapper button {
-  overflow: visible;
-  position: relative;
-  float: right;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  height: 40px;
-  width: 90px;
-  font: 13px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
-  color: rgb(110, 104, 104);
-  background: none;
-  border-radius: 10px;
-}  
- 
-.search-wrapper button:active,
-.search-wrapper button:focus{  
-  background: #198cff;
-  outline: 0;  
-}
+
 
 .search-wrapper button:focus:before,
 .search-wrapper button:active:before{

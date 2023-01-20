@@ -189,12 +189,12 @@ router.get("/goal/:id", async (req, res) => {
             "content",
             // 'created_at',
           ],
-          /*include: [
+          include: [
             {
               model: User,
               attributes: ["id", "username"],
             },
-          ],*/
+          ],
         },
       ],
     });

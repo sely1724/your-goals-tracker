@@ -25,5 +25,5 @@ console.log(event.target[1].dataset);
   };
 
   document
-  .querySelector('.form-input')
+  .querySelector('.comment-form')
   .addEventListener('submit', submitCommentFormHandler);
