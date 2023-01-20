@@ -1089,6 +1089,13 @@ a:hover {
   border-top-right-radius: 9px;
 }
 
+.dashboard-card-header {
+  padding: 0.375rem;
+  background-color: #757352;
+  color: #f9f9ec;
+  border-radius: 9px;t
+}
+
 .card .card-body {
   padding: 0.375rem;
   color: #705d5d;
