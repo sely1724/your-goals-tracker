@@ -20,13 +20,27 @@
       <nav>
         <ul>
           <li>
+            {{#if loggedIn}}
             <a href="/dashboard">Dashboard</a>
+            {{else}}
+            <a href="/login">Dashboard</a>
+            {{/if}}
           </li>
           <li>
+            {{#if loggedIn}}
             <a href="/allUsers">Users</a>
+            {{else}}
+            <a href="/login">Users</a>
+            {{/if}}
           </li>
           <li>
-            <a id="logout-button" href="/">Logout</a>
+            {{#if loggedIn}}
+            <a href="/logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+
+            {{!-- <a id="logout-button" href="/">Logout</a> --}}
           </li>
         </ul>
       </nav>
