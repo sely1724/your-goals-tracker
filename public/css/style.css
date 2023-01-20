@@ -1,23 +1,23 @@
 :root {
-  --primary: #4e6f68;
-  --secondary: #adb8b5;
-  --tertiary: #65948a;
+  --primary: #8ea048;
+  --secondary: #f1f3e7;
+  --tertiary: #d6d6d6;
   --quatrinary: #b2b2ae;
-  --light: #e5e9e5;
-  --dark: #182c23;
+  --light: #dddddd;
+  --dark: #42423a;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
 }
 
 body {
-  font-family: Arial;
+  font-family: "Lato", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   justify-content: flex-start;
   background-color: var(
-    --quatrinary
+    --light
   );
 }
 
@@ -34,12 +34,12 @@ header {
   padding: 40px;
   text-align: center;
   background: var(--primary);
-  color: var(--light);
+  color: var(--secondary);
 }
 
 h1 {
   display: flex;
-  color: rgb(138, 178, 174)
+  color: var(--secondary);
 }
 
 main {
@@ -80,6 +80,7 @@ main {
   margin-left: 10px;
   justify-content: center;
 }
+
 .parent {
   display: flex;
 }
@@ -95,7 +96,6 @@ main {
   );
   color: var(--dark);
 }
-
 
 .login-card {
   flex: 0 0 50%;
@@ -126,7 +126,7 @@ footer {
 
 /* Styling Heart */
 .bi-heart {
-  color: red;
+  color: rgb(214, 95, 95);
   font-size: 250px;
   height: 20px;
   width:20px;
