@@ -33,7 +33,7 @@ const loginFormHandler = async (event) => {
          document.location.replace('/');
       } else {
          // if the login was unsuccessful, display an alert
-         loginAlertEl.classList.remove('d-none');
+         alert('Incorrect username or password');
       }
    }
 };
@@ -70,7 +70,7 @@ const signupFormHandler = async (event) => {
          document.location.replace('/');
       } else {
          // if signup was unsuccessful, display an alert
-         signupAlertEl.classList.remove('d-none');
+         alert('Failed to sign up');
       }
    }
 }
