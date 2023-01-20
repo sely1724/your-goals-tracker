@@ -69,9 +69,11 @@ router.get("/userid/:id", async (req, res) => {
       }
     })
 
-    console.log(dbGoalData);
+    console.log(goalData);
 
-    res.status(200).json(dbGoalData);
+    const goalData = dbGoalData.map((goal) => goal.get({ plain: true }))
+
+    res.status(200).json(goalData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
