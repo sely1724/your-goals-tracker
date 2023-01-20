@@ -15,25 +15,25 @@ const app = express();
 const PORT =
   process.env.PORT || 3001;
 
-// const sess = {
-//   secret: process.env.SECRET, // value is saved inside .env file
-//   cookie: {
-//     // this is how long session stays alaive this is related to loggedIn from home-routes.js
-//     maxAge: 60 * 60 * 1000,
-//     // do not return cookies exept to HTTPS, required or not
-//     httpOnly: true,
-//     // do not return cookies exept to HTTPS, required or not
-//     secure: false,
-//     // is able to deliver to other domain site
-//     sameSite: 'strict',
-//   }, resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize,
-//   }),
-// };
+const sess = {
+  secret: process.env.SECRET, // value is saved inside .env file
+  cookie: {
+    // this is how long session stays alaive this is related to loggedIn from home-routes.js
+    maxAge: 60 * 60 * 1000,
+    // do not return cookies exept to HTTPS, required or not
+    httpOnly: true,
+    // do not return cookies exept to HTTPS, required or not
+    secure: false,
+    // is able to deliver to other domain site
+    sameSite: 'strict',
+  }, resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
-// app.use(session(sess));
+app.use(session(sess));
 
 const hbs = exphbs.create({
   helpers,
