@@ -69,11 +69,9 @@ router.get("/userid/:id", async (req, res) => {
       }
     })
 
-    const goalData = dbGoalData.get({ plain: true });
+    console.log(dbGoalData);
 
-    console.log(goalData);
-
-    res.status(200).json(JSON.stringify(goalData));
+    res.status(200).json(dbGoalData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
