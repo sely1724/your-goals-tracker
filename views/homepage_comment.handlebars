@@ -1,54 +1,92 @@
- <section class="user-card-wrapper">
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="100"
-        height="100"
-        fill="currentColor"
-        class="bi bi-person-circle"
-        viewBox="0 0 16 16"
-    >
-        <path
-        d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
-        ></path>
-        <path
-        fill-rule="evenodd"
-        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-        ></path>
-    </svg>
+<section
+  class="user-card-wrapper"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="100"
+    height="100"
+    fill="currentColor"
+    class="bi bi-person-circle"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
+    ></path>
+    <path
+      fill-rule="evenodd"
+      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+    ></path>
+  </svg>
 
-    <div class="card">
-        <div class="card-header">
-        <h3>{{goal.User.username}}</h3>
-        </div>
-
-        <div class="card-body">
-        <blockquote class="blockquote mb-0">
-            <p>This is my Goal: {{goal.content}} </p>
-            <p>Target by: {{goal.finish_by}}</p>
-        </blockquote>
-        </div>
-    </div>
-    
-
-    <div>
-        {{#each goal.Comments as |comment|}}
-        <p>{{comment.content}}</p>
-        {{/each}}
+  <div class="card">
+    <div class="card-header">
+      <h3
+      >{{goal.User.username}}</h3>
     </div>
 
-    <form class="comment-form">
-
-        <div class="form-group">
-            <label for="comment">Comment</label>
-            <input class="form-input" type="text" id="user-comment" />
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit" data-post-id={{goal.id}} >Submit</button>
-        </div>
-            
-    </form>
-
-        <script src="/js/comment.js"></script>
-
+    <div class="card-body">
+      <blockquote
+        class="blockquote mb-0"
+      >
+        <p>This is my Goal:
+          {{goal.content}}
+        </p>
+        <form
+          class="search-wrapper form-input"
+        >
+          <input type="text" id="user-comment" placeholder="Add a comment" required style="box-shadow: none"> 
+          <button
+            type="submit"
+            data-post-id={{goal.id}}
+          >Submit</button>
+        </form>
+      </blockquote>
+    </div>
+  </div>
 </section>
+
+<section>
+  <div
+    class="comment-card-wrapper w-75 mx-auto"
+  >
+    {{!-- <form class="comment-form">
+         <div class="form-group">
+              <label for="comment">Comment</label>
+             <input class="form-input" type="text" id="user-comment" />
+           </div>
+
+          <div class="form-group">
+             <button class="btn btn-primary" type="submit" data-post-id={{goal.id}} >Submit</button>
+          </div>
+            
+        </form> --}}
+
+    {{#each
+      goal.Comments
+      as |comment|
+    }}
+      <div
+        class="card w-75 mx-auto"
+      >
+        <div
+          class="card-body"
+        >
+          <h3
+          >{{goal.User.username}}</h3>
+          <blockquote
+            class="blockquote mb-0"
+          >
+
+            <p
+            >{{comment.content}}</p>
+
+          </blockquote>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</section>
+
+<script
+  src="/js/comment.js"
+></script>
