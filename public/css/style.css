@@ -119,6 +119,22 @@ main {
   font-weight: bold;
 }
 
+.comment-card {
+  margin-left: 225px;
+  width: 100%;
+  border: none;
+}
+
+.comment-card-body {
+  border-style: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--light);
+  color: #6b683d;
+  font-size: 1.4rem;
+}
+
 footer {
   display: flex;
   color: rgb(115, 114, 114);
@@ -146,7 +162,7 @@ footer {
 /* Form text input */
 
 .search-wrapper input {
-padding-left: 20px;
+  padding-left: 20px;
   width: 330px;
   height: 20px;
   padding: 10px 5px;
@@ -172,7 +188,6 @@ padding-left: 20px;
 }
 
 .search-wrapper input:-moz-placeholder {
-  
   color: #999;
   font-weight: normal;
   font-style: italic;
@@ -182,7 +197,7 @@ padding-left: 20px;
   color: #999;
   font-weight: normal;
   font-style: italic;
-border-style: none;
+  border-style: none;
 }   
 
 /* Form submit button */
@@ -194,17 +209,13 @@ border-style: none;
   padding: 0;
   cursor: pointer;
   height: 40px;
-  width: 110px;
+  width: 90px;
   font: 13px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
-  color: #fff;
-  text-transform: uppercase;
-  background: #737475;
-  border-radius: 40px;
-  text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+  color: rgb(110, 104, 104);
+  background: none;
+  border-radius: 10px;
 }  
-
-
-
+ 
 .search-wrapper button:active,
 .search-wrapper button:focus{  
   background: #198cff;

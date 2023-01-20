@@ -15,10 +15,14 @@ Goal.belongsTo(User, {
 Goal.hasMany(Comment, {
    foreignKey: 'goal_id'
 });
+
 Comment.belongsTo(Goal, {
    foreignKey: 'goal_id'
 });
 
+Comment.belongsTo(User, {
+   foreignKey: 'goal_id'
+});
 // each goal has many milestones
 Goal.hasMany(Milestone, {
    foreignKey: 'goal_id'

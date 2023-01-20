@@ -1003,6 +1003,7 @@ a:hover {
 .btn.btn-primary {
   background-color: #2d3e50;
   color: #d9e9e8;
+  text-transform: uppercase;
 }
 
 .btn.btn-primary:hover {
@@ -1326,6 +1327,9 @@ form [type='radio'] {
 
 /* col-sm */
 @media screen and (min-width: 640px) {
+  .comment-card{
+    margin-left: 125px;
+  }
   .col-sm-auto {
     flex-grow: 1;
     flex-basis: 0;

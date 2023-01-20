@@ -32,13 +32,15 @@
           {{goal.content}}
         </p>
         <form
-          class="search-wrapper form-input"
+          class="search-wrapper comment-form"
         >
-          <input type="text" id="user-comment" placeholder="Add a comment" required style="box-shadow: none"> 
+        <div class="form-group">
+          <input for="comment" type="text" id="user-comment" placeholder="Add a comment" required style="box-shadow: none"> 
           <button
             type="submit"
             data-post-id={{goal.id}}
           >Submit</button>
+          </div>
         </form>
       </blockquote>
     </div>
@@ -47,32 +49,20 @@
 
 <section>
   <div
-    class="comment-card-wrapper w-75 mx-auto"
+    class="comment-card-wrapper"
   >
-    {{!-- <form class="comment-form">
-         <div class="form-group">
-              <label for="comment">Comment</label>
-             <input class="form-input" type="text" id="user-comment" />
-           </div>
-
-          <div class="form-group">
-             <button class="btn btn-primary" type="submit" data-post-id={{goal.id}} >Submit</button>
-          </div>
-            
-        </form> --}}
-
     {{#each
       goal.Comments
       as |comment|
     }}
       <div
-        class="card w-75 mx-auto"
+        class="comment-card"
       >
         <div
-          class="card-body"
+          class="comment-card-body"
         >
           <h3
-          >{{goal.User.username}}</h3>
+          >{{comment.User.username}}</h3>
           <blockquote
             class="blockquote mb-0"
           >
