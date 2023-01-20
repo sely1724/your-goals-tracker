@@ -79,6 +79,14 @@ main {
   justify-content: center;
 }
 
+.comment-card-wrapper {
+  margin-top: 30px;
+  display: column;
+  align-items: center;
+  margin-left: 10px;
+  justify-content: center;
+}
+
 .parent {
   display: flex;
 }
@@ -91,6 +99,7 @@ main {
   background-color: var(--light);
   color: var(--dark);
 }
+
 
 .login-card {
   flex: 0 0 50%;
@@ -108,6 +117,22 @@ main {
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
+}
+
+.comment-card {
+  margin-left: 225px;
+  width: 100%;
+  border: none;
+}
+
+.comment-card-body {
+  border-style: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--light);
+  color: #6b683d;
+  font-size: 1.4rem;
 }
 
 footer {
@@ -133,6 +158,79 @@ footer {
 .create-post select {
   width: 75px;
 }
+
+/* Form text input */
+
+.search-wrapper input {
+  padding-left: 20px;
+  width: 330px;
+  height: 20px;
+  padding: 10px 5px;
+  float: left;   
+  font: bold 15px  'lato', 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border: 0;
+  background: #fff;
+  border-radius: 40px;
+  border-top-style: none;
+}
+
+.search-wrapper input:focus {
+  outline: 0;
+  background: #fff;
+  box-shadow: 0 0 2px rgba(0,0,0,0.8) inset;
+}
+
+.search-wrapper input::-webkit-input-placeholder {
+ color: #999;
+ font-weight: normal;
+ font-style: italic;
+padding-left: 20px;
+}
+
+.search-wrapper input:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.search-wrapper input:-ms-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+  border-style: none;
+}   
+
+/* Form submit button */
+.search-wrapper button {
+  overflow: visible;
+  position: relative;
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 90px;
+  font: 13px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  color: rgb(110, 104, 104);
+  background: none;
+  border-radius: 10px;
+}  
+ 
+.search-wrapper button:active,
+.search-wrapper button:focus{  
+  background: #198cff;
+  outline: 0;  
+}
+
+.search-wrapper button:focus:before,
+.search-wrapper button:active:before{
+      border-right-color: #c42f2f;
+}     
+
+.search-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+  border: 0;
+  padding: 0;
+} 
 
 /* Animation for heart */
 @keyframes pulse {

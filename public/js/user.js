@@ -10,17 +10,18 @@ const goalPostHandler = async (event) => {
 
   const content = document.querySelector("#content").value.trim();
   const finish_by = document.querySelector("#finish-date").value.trim();
-  const completed = document.querySelector("#completed").value == "yes" ? true : false;
+  const completed =
+    document.querySelector("#completed").value == "yes" ? true : false;
 
   //userid not necessary
 
-  const response = await fetch("/api/goal/", {
+  const response = await fetch("/api/goal", {
     method: "POST",
     body: JSON.stringify({ content, finish_by, completed }),
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
-    document.location.replace("/" /*waiting for handlebars names*/);
+    document.location.replace("/");
   } else {
     alert("Failed to post goal.");
   }

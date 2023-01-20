@@ -23,7 +23,7 @@
             <input type="date" id="finish-date" placeholder="Finish Date"> <!-- eventually add drop down-->
             <label for="completed">Completed?</label>
             <select name="yes/no" id="completed">
-                <option value="yes">Yes</option>
+                <option value="yes">Yes</option> <!-- should value actually equal true??? -->
                 <option value="no">No</option>
             </select>
             <!-- eventually add drop down-->
@@ -31,12 +31,12 @@
         </form>
     </section>
 
-
-    {{#if content.length}} . <!-- need to console log and test to get correct name-->
+<div style="width: 800px;"><canvas id="chart"></canvas></div>
+    {{#if myUser.Goals.length}} . <!-- need to console log and test to get correct name-->
     <section>
         <div class="col-md-6 blog-list">
             <h3>All Your Blogs:</h3>
-            {{#each dbGoalData as |goal|}}
+            {{#each myUser.Goals as |goal|}}
             {{> my-goal-details }} <!-- need to create a partial -->
             {{/each}}
         </div>

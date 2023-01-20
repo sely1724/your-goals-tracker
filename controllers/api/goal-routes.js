@@ -1,3 +1,4 @@
+const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
 //const withAuth = require("../../utils/auth");  or whatever folder is...
@@ -6,8 +7,8 @@ const { Goal } = require("../../models");
 //create from User's Personal Page - we call this
 router.post("/", async (req, res) => {
   try {
-    console.log(req.body);
-    console.log(typeof req.body.completed);
+    //console.log(req.body);
+    //console.log(typeof req.body.completed);
     const dbGoalData = await Goal.create({
       content: req.body.content,
       finish_by: req.body.finish_by,
@@ -56,6 +57,23 @@ router.delete("/:id", async (req, res) => {
 
     res.status(200).json(deleteGoal);
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/userid/:id", async (req, res) => {
+  try {
+    const dbGoalData = await Goal.findAll({
+      where: {
+        user_id: req.params.id
+      }
+    })
+
+    const goalData = dbGoalData.map((goal) => goal.get({ plain: true }))
+
+    res.status(200).json(goalData);
+  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
