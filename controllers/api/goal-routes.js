@@ -69,8 +69,6 @@ router.get("/userid/:id", async (req, res) => {
       }
     })
 
-    console.log(goalData);
-
     const goalData = dbGoalData.map((goal) => goal.get({ plain: true }))
 
     res.status(200).json(goalData);

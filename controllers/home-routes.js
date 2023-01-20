@@ -26,7 +26,7 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       // refers to homepage.handlebars
       goals,
-      // loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -209,5 +209,9 @@ router.get("/goal/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get("/testchart/:id", async (req, res) => {
+//   res.render('test', { id: req.params.id });
+// })
 
 module.exports = router;
