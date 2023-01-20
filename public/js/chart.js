@@ -4,5 +4,8 @@ Chart.defaults.color = '#153243';
 
 async function render(userID) {
    const fetchURL = 'api/goal/userid/' + userID
-   const goalData = await fetch(fetchURL, )
+   const goalData = await fetch(fetchURL, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+   })
 }
