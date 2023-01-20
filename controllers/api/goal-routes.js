@@ -1,3 +1,4 @@
+const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
 //const withAuth = require("../../utils/auth");  or whatever folder is...
@@ -56,6 +57,23 @@ router.delete("/:id", async (req, res) => {
 
     res.status(200).json(deleteGoal);
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/userid/:id", async (req, res) => {
+  try {
+    const dbGoalData = await Goal.findAll({
+      where: {
+        user_id: req.params.id
+      }
+    })
+
+    console.log(dbGoalData);
+
+    res.status(200).json(dbGoalData);
+  } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
