@@ -1,5 +1,3 @@
-moment().format();
-
 async function render(userID) {
 
    const dbGoalData = await fetch(`/api/goal/userid/${userID}`);
@@ -19,40 +17,24 @@ async function render(userID) {
             datasets: [
                {
                   label: 'Goals Completed',
-                  data: chartData.map(obj => obj.goalsCompleted)
+                  data: chartData.map(obj => obj.goalsCompleted),
+                  backgroundColor: '#42423a'
                }
             ]
          },
          options: {
+            aspectRatio: 1.7,
             scales: {
-               x: {
-                  title: {
-                     text: 'Month',
-                     display: true
+               yAxes: [{
+                  ticks: {
+                     beginAtZero: true,
+                     callback: (value) => {
+                        if (Number.isInteger(value)) return value;
+                     }
                   }
-               },
-               y: {
-                  title: {
-                     text: 'Goals completed',
-                     display: true
-                  }
-               }
-            },
-            plugins: {
-               title: {
-                  display: true,
-                  text: 'Goals Completed Per Month'
-               },
-               legend: {
-                  display: false
-               }
-            },
-            elements: {
-               bar: {
-
-               }
+               }]
             }
-         },
+         }
 
       }
    )
@@ -84,8 +66,7 @@ function parse(goalData) {
    return chartData;
 }
 
+// get userID
 const userID = document.location.href.split('/').slice(-1)[0];
 
-console.log(userID);
-
-render(1);
+render(userID);
