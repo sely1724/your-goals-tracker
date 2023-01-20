@@ -210,8 +210,8 @@ router.get("/goal/:id", async (req, res) => {
   }
 });
 
-router.get("/testchart/:id", async (req, res) => {
-  res.render('test', { id: req.params.id });
-})
+// router.get("/testchart/:id", async (req, res) => {
+//   res.render('test', { id: req.params.id });
+// })
 
 module.exports = router;
