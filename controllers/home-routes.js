@@ -18,7 +18,6 @@ router.get("/", async (req, res) => {
           model: Comment,
           attributes: ["id", "content"],
         },
-
       ],
     });
 
@@ -54,6 +53,39 @@ router.get("/dashboard", async (req, res) => {
     console.log(myUser);
     res.render("dashboard", {
       myUser,
+      //loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET INDIVIDUAL PERSONAL GOAL- have to add a login check???
+router.get("/dashboard/goal/:id", async (req, res) => {
+  try {
+    const dbGoalData = await Goal.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["id", "username"],
+        },
+        // include comments TOO???
+        // {
+        //   model: Comment,
+        //   attributes: ["id", "content", "user_id", "goal_id"],
+        //   include: {
+        //     model: Users,
+        //     attributes: ["username"],
+        //   },
+        // },
+      ],
+    });
+
+    const myGoals = dbGoalData.get({ plain: true });
+    console.log(myGoals);
+    res.render("personal-goals", {
+      goal: myGoals,
       //loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -162,7 +194,7 @@ router.get("/allUsers", async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/dashboard");
     return;
   }
   // Otherwise, render the 'login' template
@@ -204,7 +236,7 @@ router.get("/goal/:id", async (req, res) => {
     // Send over the 'loggedIn' session variable to the 'post' template
 
     console.log(goal);
-    res.render("homepage_comment", { goal, /*loggedIn: req.session.loggedIn*/ });
+    res.render("homepage_comment", { goal /*loggedIn: req.session.loggedIn*/ });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
