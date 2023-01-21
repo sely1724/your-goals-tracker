@@ -7,6 +7,7 @@ const { Goal, User, Comment } = require("../models");
 router.get("/", async (req, res) => {
   try {
     // to request existed goals in db with comments to them
+    
     const dbAllGoals = await Goal.findAll({
       include: [
         {
@@ -210,6 +211,43 @@ router.get("/goal/:id", async (req, res) => {
   }
 });
 
+
+// Get individual user goals by its ID
+router.get("/user/:id", async (req, res) => {
+  try {
+    const individualUser = await User.findByPk(req.params.id, {
+      include: [
+        // {
+        //   model: User,
+        //   attributes: ["id", "username"],
+        // },
+        {
+          model: Goal,
+          attributes: [
+            "id",
+            "content",
+            // 'created_at',
+          ],
+          include: [
+            {
+              model: User,
+              attributes: ["id", "username"],
+            },
+          ],
+        },
+      ],
+    });
+
+    const userGoals = individualUser.get({ plain: true });
+    // Send over the 'loggedIn' session variable to the 'post' template
+
+    console.log(userGoals);
+    res.render("individual-user", { userGoals, /*loggedIn: req.session.loggedIn*/ });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 // router.get("/testchart/:id", async (req, res) => {
 //   res.render('test', { id: req.params.id });
 // })
