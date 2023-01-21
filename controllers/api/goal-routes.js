@@ -66,6 +66,7 @@ router.delete("/:id", async (req, res) => {
 //       },
 //     });
 
+
 //     console.log(dbGoalData);
 
 //     res.status(200).json(dbGoalData);
@@ -74,5 +75,14 @@ router.delete("/:id", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
+    const goalData = dbGoalData.map((goal) => goal.get({ plain: true }))
+
+    res.status(200).json(goalData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

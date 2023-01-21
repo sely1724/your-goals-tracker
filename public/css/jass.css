@@ -967,47 +967,45 @@ a:hover {
   padding: 0.5rem 1.2rem;
   margin: 0;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1rem 'lato', 'lucida sans', 'trebuchet MS', 'Tahoma';
   border-radius: 0.3rem;
   border: 1px solid transparent;
   outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-.btn:hover {
-  background-color: #cecece;
-}
-
-.btn.btn-squared {
-  border-radius: 0;
-}
-
-.btn.btn-sm {
-  font-size: 0.85rem;
-  padding: 0.3rem 0.9rem;
-}
-
-.btn.btn-lg {
-  font-size: 1.25rem;
-  padding: 0.8rem 1.4rem;
-}
-
-.btn.btn-block {
-  width: 100%;
-  display: block;
-  text-align: center;
+/* Form submit button */
+ .search-wrapper button {
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 90px;
+  font: 1rem 'lato', 'lucida sans', 'trebuchet MS', 'Tahoma';
+  color: rgb(110, 104, 104);
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+  margin-right: 5px;
+  margin-top: 15px;
+}   
+ 
+.search-wrapper button:active,
+.search-wrapper button:focus{  
+  background: #71757a;
+  outline: 0;  
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: #696c70;
   color: #d9e9e8;
+  text-transform: uppercase;
 }
 
-.btn.btn-primary:hover {
-  background-color: #57779a;
+ .search-wrapper button:hover{
+  color: #8ea048;
 }
+ 
 
 .btn.btn-danger {
   background-color: #e64c66;
@@ -1028,7 +1026,7 @@ a:hover {
 }
 
 .btn.btn-light {
-  background-color: #d9e9e8;
+  background-color: #9ffcf6;
   color: #1a1a1a;
 }
 
@@ -1038,7 +1036,7 @@ a:hover {
 
 .btn.btn-dark {
   background-color: #1a1a1a;
-  color: #d9e9e8;
+  color: #d2fcf9;
 }
 
 .btn.btn-dark:hover {
@@ -1093,7 +1091,7 @@ a:hover {
   padding: 0.375rem;
   background-color: #757352;
   color: #f9f9ec;
-  border-radius: 9px;t
+  border-radius: 9px;
 }
 
 .card .card-body {
@@ -1326,6 +1324,14 @@ form [type='radio'] {
 
 /* col-sm */
 @media screen and (min-width: 640px) {
+  .comment-card{
+    margin-left: 35px;
+  }
+
+  .login-card {
+    max-width: 48%;
+  }
+
   .col-sm-auto {
     flex-grow: 1;
     flex-basis: 0;
@@ -1420,7 +1426,16 @@ form [type='radio'] {
 }
 
 /* col-md */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) 
+{
+  .comment-card{
+    margin-left: 125px;
+  }
+
+  .login-card {
+    max-width: 49%;
+  }
+ 
   .col-md-auto {
     flex-grow: 1;
     flex-basis: 0;

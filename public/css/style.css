@@ -79,6 +79,14 @@ main {
   justify-content: center;
 }
 
+.comment-card-wrapper {
+  margin-top: 30px;
+  display: column;
+  align-items: center;
+  margin-left: 10px;
+  justify-content: center;
+}
+
 .parent {
   display: flex;
 }
@@ -92,6 +100,7 @@ main {
   color: var(--dark);
 }
 
+
 .login-card {
   flex: 0 0 50%;
   max-width: 49%;
@@ -100,14 +109,31 @@ main {
   border-radius: var(--border-radius);
   border-style: double;
   border-width: thick;
-  background-color: #889191;
-  color: var(--light);
+  border-color: black;
+  background-color: #b3b395;
+  color: var(--dark);
 }
 
 .card-body {
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
+}
+
+.comment-card {
+  width: 75%;
+  border: none;
+}
+
+.comment-card-body {
+  border-style: solid;
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--light);
+  color: #6b683d;
+  font-size: 1.4rem;
+  margin-left: 105px;
 }
 
 footer {
@@ -133,6 +159,51 @@ footer {
 .create-post select {
   width: 75px;
 }
+
+/* Form text input */
+
+.search-wrapper input {
+  padding: 1.5rem;
+  width: 75%;
+  float: left;   
+  font: italic 15px  'lato', 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border: 0;
+  outline: 0;
+  background: #fff;
+  border-radius: .3rem;
+}
+
+.search-wrapper input::-webkit-input-placeholder {
+ color: #999;
+ font-weight: normal;
+ font-style: italic;
+padding-left: 20px;
+}
+
+.search-wrapper input:-moz-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.search-wrapper input:-ms-input-placeholder {
+  color: #999;
+  font-weight: normal;
+  font-style: italic;
+  border-style: none;
+}   
+
+
+
+.search-wrapper button:focus:before,
+.search-wrapper button:active:before{
+      border-right-color: #c42f2f;
+}     
+
+.search-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+  border: 0;
+  padding: 0;
+} 
 
 /* Animation for heart */
 @keyframes pulse {
