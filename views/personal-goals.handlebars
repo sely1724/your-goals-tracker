@@ -1,0 +1,67 @@
+<section class="user-card-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle"
+        viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z">
+        </path>
+        <path fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
+        </path>
+    </svg>
+    <div class="card"> <!-- get rid of profile pic?? -->
+        <div class="dashboard-card-header">
+            <h3 class="goal">{{goal.User.username}}'s Goal: {{goal.content}}</h3>  
+            <h4 class = "finish-by">Finish By: {{goal.finish_by}}</h4>
+            <h4 class = "completed">Completed? {{goal.completed}}</h4> <!--render so shows up as YES vs NO instead of true/false -->
+        </div>
+
+    </div>
+</section>
+<section class="card-body">
+
+<section>
+    <h4>Delete this Goal</h4>
+    <section class="flex-row justify-center delete-post">
+    <button type="submit" id="delete-btn" value ="{{goal.id}}">Delete</button>
+</section>
+</section>
+
+    <h4>Update Goal</h4>
+    <section class="flex-row justify-center">
+        <form id="update-post">
+            <label for="finish-date">Update Goal:</label>
+            <input type="text" id="update-content" placeholder="Your Goal">
+            <label for="finish-date">Update Finish By Date:</label>
+            <input type="date" id="update-finish" placeholder="Finish Date">
+            <label for="completed">Completed?</label>
+            <select name="yes/no" id="update-completed">
+                <option value="yes">Yes</option> <!-- should value actually equal true??? -->
+                <option value="no">No</option>
+            </select>
+            <button type="submit" class="update-btn" value ="{{goal.id}}">Update</button>
+        </form>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- if we want to loop through all comments for an individual goal -->
+    {{!-- {{#each goal.Comment as |comment|}}
+    {{> comment-details}}
+    {{/each}} --}}
+  </section>
+
+
+
+<!-- Otherwise, provide a link to login -->
+
+<!-- <a href="/login" >You must login to view an individual post</a>  -->
+
+
+<script src="/js/userDeletePost.js"></script>

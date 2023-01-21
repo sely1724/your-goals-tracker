@@ -13,7 +13,6 @@ router.post("/", async (req, res) => {
       content: req.body.content,
       finish_by: req.body.finish_by,
       completed: req.body.completed,
-      //user_id: req.session.userId,
     });
     res.status(200).json(dbGoalData);
     console.log(dbGoalData);
@@ -37,8 +36,6 @@ router.put("/:id", async (req, res) => {
           id: req.params.id,
         },
       }
-
-      //how to finish update?????
     );
     res.status(200).json(updateGoal);
   } catch (err) {
@@ -61,21 +58,21 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.get("/userid/:id", async (req, res) => {
-  try {
-    const dbGoalData = await Goal.findAll({
-      where: {
-        user_id: req.params.id
-      }
-    })
+// router.get("/userid/:id", async (req, res) => {
+//   try {
+//     const dbGoalData = await Goal.findAll({
+//       where: {
+//         user_id: req.params.id,
+//       },
+//     });
 
-    console.log(dbGoalData);
+//     console.log(dbGoalData);
 
-    res.status(200).json(dbGoalData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(dbGoalData);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
