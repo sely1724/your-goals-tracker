@@ -58,27 +58,17 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// router.get("/userid/:id", async (req, res) => {
-//   try {
-//     const dbGoalData = await Goal.findAll({
-//       where: {
-//         user_id: req.params.id,
-//       },
-//     });
+router.get("/userid/:id", async (req, res) => {
+  try {
+    const dbGoalData = await Goal.findAll({
+      where: {
+        user_id: req.params.id,
+      },
+    });
 
+    console.log(dbGoalData);
 
-//     console.log(dbGoalData);
-
-//     res.status(200).json(dbGoalData);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
-    const goalData = dbGoalData.map((goal) => goal.get({ plain: true }))
-
-    res.status(200).json(goalData);
+    res.status(200).json(dbGoalData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
