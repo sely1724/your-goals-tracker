@@ -2,7 +2,7 @@ const { Router } = require("express");
 const express = require("express");
 const router = express.Router();
 //const withAuth = require("../../utils/auth");  or whatever folder is...
-const { Goal } = require("../../models");
+const { Goal, User } = require("../../models");
 
 //create from User's Personal Page - we call this
 router.post("/", async (req, res) => {
@@ -68,6 +68,21 @@ router.get("/userid/:id", async (req, res) => {
     });
 
     console.log(dbGoalData);
+
+    res.status(200).json(dbGoalData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/dash", async (req, res) => {
+  try {
+    const dbGoalData = await Goal.findAll({
+      where: {
+        user_id: req.session.id,
+      },
+    });
 
     res.status(200).json(dbGoalData);
   } catch (err) {
