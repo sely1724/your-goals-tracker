@@ -37,24 +37,29 @@ router.get("/", async (req, res) => {
 router.get("/dashboard", async (req, res) => {
   //add helper for login check withAuth
   try {
-    const dbUserData = await User.findOne({
-      where: {
-        id: req.session.userId,
-      },
-      include: [
-        {
-          model: Goal,
-          attributes: ["id", "content", "finish_by", "completed"],
+    if (!req.session.user.loggedIn) {
+      console.log("Please log in or create an account");
+      res.redirect("/");
+    } else {
+      const dbUserData = await User.findOne({
+        where: {
+          id: req.session.userId,
         },
-      ],
-    });
+        include: [
+          {
+            model: Goal,
+            attributes: ["id", "content", "finish_by", "completed"],
+          },
+        ],
+      });
 
-    const myUser = dbUserData.get({ plain: true });
-    console.log(myUser);
-    res.render("dashboard", {
-      myUser,
-      //loggedIn: req.session.loggedIn,
-    });
+      const myUser = dbUserData.get({ plain: true });
+      console.log(myUser);
+      res.render("dashboard", {
+        myUser,
+        //loggedIn: req.session.loggedIn,
+      });
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
