@@ -67,8 +67,6 @@ router.get("/userid/:id", async (req, res) => {
       },
     });
 
-    console.log(dbGoalData);
-
     res.status(200).json(dbGoalData);
   } catch (err) {
     console.log(err);
