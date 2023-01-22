@@ -1,6 +1,12 @@
-async function render(userID) {
+async function render(href) {
 
-   const dbGoalData = await fetch(`/api/goal/userid/${userID}`);
+   let dbGoalData;
+
+   if (Number.isInteger(href)) {
+      dbGoalData = await fetch(`/api/goal/userid/${userID}`);
+   } else {
+      dbGoalData = await fetch(`/api/goal/dash`)
+   }
 
    const goalData = await dbGoalData.json()
 
@@ -8,7 +14,7 @@ async function render(userID) {
 
    console.log(chartData);
 
-   const myChart = new Chart(
+   new Chart(
       document.getElementById('chart'),
       {
          type: 'bar',
@@ -66,7 +72,6 @@ function parse(goalData) {
    return chartData;
 }
 
-// get userID
-const userID = document.location.href.split('/').slice(-1)[0];
+const href_slice = document.location.href.split('/').slice(-1)[0];
 
-render(userID);
+render(href_slice);
