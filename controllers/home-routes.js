@@ -37,7 +37,7 @@ router.get("/", async (req, res) => {
 router.get("/dashboard", async (req, res) => {
   //add helper for login check withAuth
   try {
-    if (!req.session.user.loggedIn) {
+    if (!req.session.loggedIn) {
       console.log("Please log in or create an account");
       res.redirect("/");
     } else {
@@ -57,7 +57,7 @@ router.get("/dashboard", async (req, res) => {
       console.log(myUser);
       res.render("dashboard", {
         myUser,
-        //loggedIn: req.session.loggedIn,
+        loggedIn: req.session.loggedIn,
       });
     }
   } catch (err) {
