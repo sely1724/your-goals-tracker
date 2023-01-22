@@ -16,12 +16,12 @@ const loginFormHandler = async (event) => {
 
    // if the user provided both an email and a password, attempt to log in
    if (email && password) {
-      const response = fetch('/api/user/login', {
+      const response = await fetch('/api/user/login', {
          method: 'POST',
          // compile login info into json object to send
          body: JSON.stringify({
-            email: email,
-            password: password
+           email,
+           password
          }),
          headers: {
             'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ console.log(response);
          alert('Failed to sign up');
       }
    }
-}
+};
 
 // add event listeners for both submit buttons
 loginFormEl.addEventListener('submit', loginFormHandler);
