@@ -34,13 +34,12 @@
         <form
           class="search-wrapper comment-form"
         >
-        <div class="form-group" id="user-comment">
-          <input for="comment" type="text" placeholder="Add a comment" aria-label="Add a comment" > 
+        <div class="form-group" >
+          <input id="user-comment" for="comment" type="text" placeholder="Add a comment" aria-label="Add a comment" > 
           {{!-- required style="box-shadow: none" --}}
-          <button
-            type="submit"
-            data-post-id={{goal.id}}
-          >Submit</button>
+          {{#if loggedIn}}
+          <button type="submit" data-post-id={{goal.id}}>Submit</button>
+          {{/if}}
           </div>
         </form>
       </blockquote>

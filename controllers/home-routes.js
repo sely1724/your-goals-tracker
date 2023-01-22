@@ -39,7 +39,7 @@ router.get("/dashboard", async (req, res) => {
   try {
     if (!req.session.loggedIn) {
       console.log("Please log in or create an account");
-      res.redirect("/");
+      res.redirect("/login");
     } else {
       const dbUserData = await User.findOne({
         where: {
@@ -177,6 +177,10 @@ router.get("user/:id", async (req, res) => {
 // GET list of users - have to login to be able to access this page
 router.get("/allUsers", async (req, res) => {
   try {
+    if (!req.session.loggedIn) {
+      console.log("Please log in or create an account");
+      res.redirect("/login");
+    } else {
     // get data from database
     const userData = await User.findAll({});
 
@@ -189,6 +193,7 @@ router.get("/allUsers", async (req, res) => {
       users,
       loggedIn: true,
     });
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -241,7 +246,7 @@ router.get("/goal/:id", async (req, res) => {
     // Send over the 'loggedIn' session variable to the 'post' template
 
     console.log(goal);
-    res.render("homepage_comment", { goal /*loggedIn: req.session.loggedIn*/ });
+    res.render("homepage_comment", { goal, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -279,7 +284,7 @@ router.get("/user/:id", async (req, res) => {
 
     console.log(userGoals);
     res.render("individual-user", {
-      userGoals /*loggedIn: req.session.loggedIn*/,
+      userGoals, loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
