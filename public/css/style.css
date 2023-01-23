@@ -100,8 +100,22 @@ main {
   color: var(--dark);
 }
 
+.dash-card {
+  margin-left: 235px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 75%;
+  border: 7px double #6b683d;
+  border-radius: 10px;
+  background-color: var(--light);
+  color: var(--dark);
+}
+
 .single-goal {
   border-radius: 9px;
+  background-color: var(--light);
+  color: var(--dark);
+  text-align: start;
 }
 
 .individual-username {
@@ -137,6 +151,10 @@ margin-bottom: 15px;
 .goals-card {
   width: 80%;
   margin-left: 10%;
+}
+
+.blog-card{
+margin-left: 200px;
 }
 
 .comment-card-body {
@@ -188,7 +206,7 @@ footer {
 
 /* Form text input */
 
-.search-wrapper input {
+.sear -wrapper input {
   padding: 1.5rem;
   width: 75%;
   float: left;   
