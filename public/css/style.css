@@ -104,6 +104,13 @@ main {
   border-radius: 9px;
 }
 
+.individual-username {
+color: #6b683d;
+margin-left: 30px;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+
 .login-card {
   flex: 0 0 50%;
   max-width: 49%;
@@ -125,7 +132,11 @@ main {
 
 .comment-card {
   width: 75%;
-  border: none;
+}
+
+.goals-card {
+  width: 80%;
+  margin-left: 10%;
 }
 
 .comment-card-body {
@@ -137,6 +148,18 @@ main {
   color: #6b683d;
   font-size: 1.4rem;
   margin-left: 105px;
+}
+
+.goals-card-body {
+  border-style: solid;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--light);
+  color: #6b683d;
+  font-size: 1.4rem;
+  margin-bottom: 0px;
+  margin: 0, 20px, 0, 20px;
 }
 
 footer {
