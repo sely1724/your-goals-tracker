@@ -53,17 +53,8 @@ router.post('/logout', (req, res) => {
 });
 
 // Sign up
-// body format: {
-//   username: STRING,
-//   email: STRING,
-//   password: STRING
-// }
 router.post('/signup', async (req, res) => {
   try {
-    console.log("this is " + req.body);
-    // console.log("this is " + dbUserData);
-    // console.log("this is " + dbUserData);
-
     const dbUserData = await User.create({
       username: req.body.username,
       email: req.body.email,
@@ -76,8 +67,6 @@ console.log("this is " + dbUserData);
 
       res.status(200).json(dbUserData);
     });
-
-    // res.status(200).json({ comment: dbUserData, message: 'New account created!' });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

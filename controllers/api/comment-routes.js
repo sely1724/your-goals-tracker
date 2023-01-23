@@ -27,28 +27,6 @@ router.post('/:id', async (req, res) => {
 // PUT route to update a comment
 router.put('/:id', async (req, res) => {
     // update a comment by its `id` value
-
-    /* req.body should look like this...
-      {
-        "content": "New Comment",
-        "user_id": 1,
-        "goal_id": 2
-      }
-    */
-
-    /*Comment.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    })
-    .then((comment) => {
-      res.status(200).json(comment);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json(err);
-    });*/
-
     try {
         const dbCommentData = await Comment.update({
             // (content, date, goal_id) should be provided from /public/js folder during fetch request 
