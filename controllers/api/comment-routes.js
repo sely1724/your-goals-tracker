@@ -9,7 +9,7 @@ router.post('/:id', async (req, res) => {
             // (content, date, goal_id) should be provided from /public/js folder during fetch request 
             // in JSON.stringify({ content, date, goal_id})
             content: req.body.comment,
-            user_id: req.body.user_id, // to get from session in cookies 
+            user_id: req.session.userId, // to get from session in cookies 
             goal_id: req.params.id, // to get from URL in public/js/...
             // user_id: req.session.userId,  // if needed user ID from the cookies
         });
@@ -32,7 +32,7 @@ router.put('/:id', async (req, res) => {
             // (content, date, goal_id) should be provided from /public/js folder during fetch request 
             // in JSON.stringify({ content, date, goal_id})
             content: req.body.content,
-            user_id: req.body.user_id, // to get from session in cookies 
+            user_id: req.session.userId, // to get from session in cookies 
             goal_id: req.body.goal_id, // to get from URL in public/js/...
             // user_id: req.session.userId,  // if needed user ID from the cookies
         },
