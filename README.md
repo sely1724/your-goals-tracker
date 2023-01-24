@@ -1,18 +1,16 @@
 # your-goals-tracker
 
 
-  ![License Badge](https://img.shields.io/badge/license-MIT-brightgreen)
- ![Last Commit to Current Repo](https://img.shields.io/github/last-commit/sely1724/your-goals-tracker)
+![License Badge](https://img.shields.io/badge/license-MIT-brightgreen)
+![Last Commit to Current Repo](https://img.shields.io/github/last-commit/sely1724/your-goals-tracker)
 ![Commits a month](https://img.shields.io/github/commit-activity/m/sely1724/your-goals-tracker)
 
 ## Description
 
- Share a goal. See other’s goals. Update milestones completed!
-
-Through building this application we learned...
+Application to share and view goals with piers using chart.js to be able to vizualize the data. Live deployed on Heroku!
 
 ## APIs/Frameworks
-- <a href="https://www.freecodecamp.org/" >freeCodeCamp</a>
+- <a href="https://www.chartjs.org/" >chart.js</a>
 
 ## User Story
 
@@ -22,21 +20,22 @@ AS A student<br>
 So THAT I can stay motivated and inspired
 
 ## Credits
-
-These tutorials:
+UW Boot Camp
 
 ## License
 
 Please refer to the LICENSE in the repo.
 
 ## Deployed
-Find our site [here]()!
-![site image]()
+Find our site [here!](https://goalie.herokuapp.com/)
 
 ## Moving Forward
 
 Some future ideas we have for this application:
 - Select various goal types using tags
+- Adding a chart to track milestones 
+- Adding ability to "friend" piers
+- Privacy settings option to enable making goals public, only able to be seen by friends, or completely private
 
 ## Contact
 
