@@ -21,7 +21,7 @@ Comment.belongsTo(Goal, {
 });
 
 Comment.belongsTo(User, {
-   foreignKey: 'goal_id'
+   foreignKey: 'user_id'
 });
 // each goal has many milestones
 Goal.hasMany(Milestone, {

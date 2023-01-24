@@ -91,7 +91,7 @@ router.get("/dashboard/goal/:id", async (req, res) => {
     console.log(myGoals);
     res.render("personal-goals", {
       goal: myGoals,
-      //loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -240,13 +240,17 @@ router.get("/goal/:id", async (req, res) => {
           ],
         },
       ],
+      // nest: true,
+      // raw: true,
     });
 
     const goal = dbGoal.get({ plain: true });
     // Send over the 'loggedIn' session variable to the 'post' template
 
     console.log(goal);
-    res.render("homepage_comment", { goal, loggedIn: req.session.loggedIn });
+    console.log(req.session.userId);    
+
+    res.render("homepage_comment", { goal, loggedIn: req.session.loggedIn, userId: req.session.userId });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
