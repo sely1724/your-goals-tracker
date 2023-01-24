@@ -27,3 +27,24 @@ console.log(event.target[1].dataset);
   document
   .querySelector('.comment-form')
   .addEventListener('submit', submitCommentFormHandler);
+  
+async function deleteComment(event) {
+  const commentId = event.target.dataset.id
+  const response = await fetch("/api/comment/" + commentId, {
+    // creating http delete request
+    method: "DELETE",
+  });
+  if (response.ok) {
+    console.log("ok response");
+    // console.log(req.body.content);
+    document.location.reload();
+  } else {
+    ("failed to delete comment");
+  }
+}
+
+document.querySelectorAll('.js-delete-btn')
+  .forEach((button) => {
+  button.addEventListener('click', deleteComment)
+  })
+
