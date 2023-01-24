@@ -61,6 +61,9 @@ router.delete("/:id", async (req, res) => {
 
 router.get("/userid/:id", async (req, res) => {
   try {
+
+    console.log(req.params.id);
+
     const dbGoalData = await Goal.findAll({
       where: {
         user_id: req.params.id,
@@ -76,9 +79,12 @@ router.get("/userid/:id", async (req, res) => {
 
 router.get("/dash", async (req, res) => {
   try {
+
+    // console.log(req.session.userId);
+
     const dbGoalData = await Goal.findAll({
       where: {
-        user_id: req.session.id,
+        user_id: req.session.userId,
       },
     });
 
