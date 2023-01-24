@@ -1,0 +1,21 @@
+ <h3 class="individual-username">{{userGoals.username}}</h3>
+<div class="goal-list"> 
+ {{#each userGoals.Goals as |Goal|}}
+ <a href="/goal/{{id}}">
+
+    <div class="goals-card">
+       <div class="goals-card-body">
+       <p>This is my Goal:
+          {{Goal.content}}
+        </p>
+          </div>
+         </div>
+  {{/each}}
+ </a>
+</div>
+
+{{> chart }}
+
+<div style="width: 800px;"><canvas id="chart"></canvas></div>
+
+
