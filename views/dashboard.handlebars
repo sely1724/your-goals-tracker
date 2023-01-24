@@ -34,7 +34,6 @@
         </form>
     </section>
 
-
 <section class="dash-card card-body">
     {{#if myUser.Goals.length}} <!-- need to console log and test to get correct name-->
     <section>
@@ -45,15 +44,15 @@
             {{#each myUser.Goals as |goal|}}
             {{> my-goal-details }} 
             {{/each}}
-          
         </div>
           </section>
         {{/if}}
     </section>
 </section>
 
-{{> chart }}
+    {{> chart }}
 
 <div style="width: 800px;"><canvas id="chart"></canvas></div>
+
 <button type="button" class="js-delete-btn" data-id="{{myUser.id}}">Delete Account</button>
 <script src="/js/user.js"></script>
