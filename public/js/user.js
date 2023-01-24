@@ -27,6 +27,28 @@ const goalPostHandler = async (event) => {
   }
 };
 
+  
+async function deleteUser(event) {
+  const userId = event.target.dataset.id
+  const response = await fetch("/api/user/" + userId, {
+    // creating http delete request
+    method: "DELETE",
+  });
+  if (response.ok) {
+    console.log("ok response");
+    // console.log(req.body.content);
+    document.location.reload();
+  } else {
+    ("failed to delete user");
+  }
+}
+
+document.querySelectorAll('.js-delete-btn')
+  .forEach((button) => {
+  button.addEventListener('click', deleteUser)
+  })
+
+
 // //post milestone
 // const milestonePostHandler = async (event) => {
 //   event.preventDefault();
