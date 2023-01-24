@@ -91,7 +91,7 @@ router.get("/dashboard/goal/:id", async (req, res) => {
     console.log(myGoals);
     res.render("personal-goals", {
       goal: myGoals,
-      //loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
