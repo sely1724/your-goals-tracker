@@ -620,11 +620,6 @@ a:hover {
   background-color: #31a9e1;
 }
 
-.all-user-id {
-  color: var(--secondary);
-  margin-top: 25px;
-}
-
 .card {
   border: 1px solid #1a1a1a;
   margin-bottom: 1rem;
@@ -800,8 +795,9 @@ form .form-input {
   }
  
   .details-card{
-  width: 100%;
-  margin-left: 10px;
+  width: 110%;
+  margin-left: -70px;
+  margin-right: -30px;
   }
 
   
@@ -816,7 +812,7 @@ form .form-input {
   }
 
   .chart {
-    margin-left: 250px;
+    margin-left: 350px;
     margin-top: 50px;
   }
 
@@ -825,10 +821,9 @@ form .form-input {
     margin-left: 235px;
     }
 
-  .details-card{
-    width: 100%;
-    
-    }
+    .details-card{
+      width: 100%;
+      }
 }
 
  @media screen and (min-width: 992px){

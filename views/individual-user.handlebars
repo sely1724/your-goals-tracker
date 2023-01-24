@@ -1,16 +1,11 @@
- <h3 class="all-user-id">{{userGoals.username}}</h3>
+ <h3 class="individual-username">{{userGoals.username}}</h3>
 <div class="goal-list"> 
  {{#each userGoals.Goals as |Goal|}}
-  <ol> <a href="/goal/{{id}}">
-   
-<section class="user-card-wrapper">
+ <a href="/goal/{{id}}">
 
-    <div class="comment-card">
-            <div class="card-body">
-      <blockquote
-        class="blockquote mb-0"
-      >
-        <p>This is my Goal:
+    <div class="goals-card">
+       <div class="goals-card-body">
+       <p>This is my Goal:
           {{Goal.content}}
         </p>
           </div>
