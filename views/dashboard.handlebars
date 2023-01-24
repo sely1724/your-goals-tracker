@@ -13,30 +13,14 @@
         </div>
 
     </div>
-  <!-- TO DO BEFORE COMMITTING ADD CHART JS -->
-</section>
-
-<section class="dash-card card-body">
-    {{#if myUser.Goals.length}} <!-- need to console log and test to get correct name-->
-    <section>
-        <section>  <h3>All Your Blogs:</h3></section>
-            <section class="single-goal">
-        <div class="blog-list">
-      
-            {{#each myUser.Goals as |goal|}}
-            {{> my-goal-details }} 
-            {{/each}}
-        </div>
-          </section>
-        {{/if}}
-    </section>
 </section>
 
 <section class="dash-card card-body">
      <section class="flex-row justify-center">
-    <h4>Post a Goal</h4>
+   
    </section>
         <form class="create-post">
+            <h4>Post a Goal</h4>
             <input type="text" id="content" placeholder="Your Goal">
             <label for="finish-date">Finish by:</label>
             <input type="date" id="finish-date" placeholder="Finish Date"> <!-- eventually add drop down-->
@@ -50,7 +34,36 @@
         </form>
     </section>
 
+        <section class="dash-card card-body">
+     <section class="flex-row justify-center">
+   </section>
+        <form class="create-post">
+            <h4>Add a Milestone</h4>
+            <input type="text" id="content" placeholder="Your Milestone">
+            <label for="finish-date">Finished on:</label>
+            <input type="date" id="finish-date" placeholder="Finish Date"> <!-- eventually add drop down-->
+           
+            <!-- eventually add drop down-->
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </section>
 
+
+<section class="dash-card card-body">
+    {{#if myUser.Goals.length}} 
+    <section>
+        <section><h3>All Your Goals:</h3></section>
+            <section class="single-goal">
+        <div class="blog-list">
+      
+            {{#each myUser.Goals as |goal|}}
+            {{> my-goal-details }} 
+            {{/each}}
+        </div>
+          </section>
+        {{/if}}
+    </section>
+</section>
 
     {{> chart }}
 
