@@ -94,43 +94,44 @@ main {
 .card {
   margin: 20px;
   width: 75%;
-  border: 7px double var(--dark);
+  border: 7px double rgb(115, 114, 114);
   border-radius: 10px;
   background-color: var(--light);
   color: var(--dark);
 }
 
 .dash-card {
-  margin-left: 235px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 75%;
   border: none;
   border-radius: 10px;
   background-color: var(--light);
-  color: var(--dark);
+  color: rgb(115, 114, 114);
 }
 
 .single-goal {
   border-radius: 9px;
   background-color: var(--light);
-  color: var(--dark);
+  color: rgb(115, 114, 114);
   text-align: start;
-  
 }
 
 .individual-username {
-color: #6b683d;
+color: rgb(115, 114, 114);
 margin-left: 30px;
 margin-top: 15px;
 margin-bottom: 15px;
 }
 
 .details-card {
-  border:solid #6b683d;
+  border:solid rgb(115, 114, 114);
   border-radius: 10px;
   background-color: var(--light);
-  color: var(--dark);
+  color: rgb(115, 114, 114);
 }
 
 .login-card {
@@ -147,16 +148,26 @@ margin-bottom: 15px;
 }
 
 .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
+  color:  rgb(115, 114, 114);
 }
 
 .comment-card {
   width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .goals-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 80%;
   margin-left: 10%;
 }
@@ -167,7 +178,7 @@ margin-left: 200px;
 
 .js-delete-btn {
 float: right;
- 
+margin-right: 30px;
 }
 
 .comment-card-body {
@@ -176,7 +187,7 @@ float: right;
   width: 100%;
   border-radius: 10px;
   background-color: var(--light);
-  color: #6b683d;
+  color: rgb(115, 114, 114);
   font-size: 1.4rem;
   margin-left: 105px;
 }
@@ -187,7 +198,7 @@ float: right;
   width: 100%;
   border-radius: 10px;
   background-color: var(--light);
-  color: #6b683d;
+  color: rgb(115, 114, 114);
   font-size: 1.4rem;
   margin-bottom: 0px;
   margin: 0, 20px, 0, 20px;
@@ -195,8 +206,8 @@ float: right;
 
 footer {
   display: flex;
-  color: rgb(115, 114, 114);
   justify-content: center;
+  color: rgb(115, 114, 114);
   height: 70px;
   margin-top: 1.5rem;
   font-size: 1.6rem;
@@ -219,7 +230,7 @@ footer {
 
 /* Form text input */
 
-.sear -wrapper input {
+.search-wrapper -wrapper input {
   padding: 1.5rem;
   width: 75%;
   float: left;   

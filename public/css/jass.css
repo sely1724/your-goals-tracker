@@ -621,32 +621,34 @@ a:hover {
 }
 
 .card {
-  border: 1px solid #1a1a1a;
+  /* border: 1px solid #1a1a1a; */
   margin-bottom: 1rem;
+  border: none;
 }
 
 .bi-person-circle {
-  color:  #6b683d;
+  color:  #fcfbee;
 }
 
 .card .card-header {
   padding: 0.375rem;
-  background-color: #757352;
-  color: #f9f9ec;
+  background-color: #fcfbee;
+  color: #93877c;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
 }
 
 .dashboard-card-header {
   padding: 0.375rem;
-  background-color: #757352;
-  color: #f9f9ec;
+  background-color:#fcfbee;
+  color: #93877c;
   border-radius: 9px;
+  border-color: none;
 }
 
 .card .card-body {
   padding: 0.375rem;
-  color: #705d5d;
+  color: #93877c;
   background-color: #fdfdfc;
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
@@ -785,21 +787,11 @@ form .form-input {
   }
 
   .chart {
-    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: -80px;
     }
-
-  .dash-card {
-  width: 80%;
-  margin-left: 120px;
-  }
- 
-  .details-card{
-  width: 110%;
-  margin-left: -70px;
-  margin-right: -30px;
-  }
-
   
 @media screen and (min-width: 768px) 
 {
@@ -812,24 +804,15 @@ form .form-input {
   }
 
   .chart {
-    margin-left: 350px;
     margin-top: 50px;
+    margin-left: 25%;
   }
 
-  .dash-card {
-    width: 75%;
-    margin-left: 235px;
-    }
-
-    .details-card{
-      width: 100%;
-      }
+  .details-card{
+    width: 80%;
+    display: flex;
+    margin-left: 10%;
+    align-items: center;
+   
+  }
 }
-
- @media screen and (min-width: 992px){
-  
- } 
-
-  @media screen and (min-width: 1200px) {
- 
-  } 
