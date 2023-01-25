@@ -16,6 +16,21 @@
   <!-- TO DO BEFORE COMMITTING ADD CHART JS -->
 </section>
 
+<section class=" card-body">
+    {{#if myUser.Goals.length}} <!-- need to console log and test to get correct name-->
+ <h3>All Your Goals:</h3>
+            <section class="single-goal">
+        <div class="blog-list">
+      
+            {{#each myUser.Goals as |goal|}}
+            {{> my-goal-details }} 
+            {{/each}}
+        </div>
+          </section>
+        {{/if}}
+    </section>
+</section>
+
 <section class="card-body">
      <section class="flex-row justify-center">
     <h4>Post a Goal</h4>
