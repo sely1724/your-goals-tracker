@@ -99,6 +99,7 @@ router.get("/dashboard/goal/:id", async (req, res) => {
   }
 });
 
+
 // get user's goals for Dashboard page Maksim: added dashboard before "/" and res.render("dashboard")
 // router.get("/dashboard", async (req, res) => {
 //   try {
@@ -151,23 +152,26 @@ router.get("/dashboard/goal/:id", async (req, res) => {
 // GET individual goal post
 router.get("user/:id", async (req, res) => {
   try {
-    if (!req.session.user.loggedIn) {
-      console.log("Please log in or create an account");
-      res.redirect("/");
-    } else {
+    // if (!req.session.user.loggedIn) {
+    //   console.log("Please log in or create an account");
+    //   res.redirect("/");
+    // } else {
       const dbGoalData = await Goal.findByPk(req.params.id, {
         include: [
           {
             model: User,
-            attributes: ["id", "name"],
+            attributes: ["id", "username"],
           },
         ],
       });
 
       const goal = dbGoalData.get({ plain: true });
+      console.log("THIS IS GOALLLL", goal);
       // Send over the 'loggedIn' session variable to the 'gallery' template
-      res.render("individual-user", { goal, loggedIn: req.session.loggedIn });
-    }
+      res.render("individual-user", {
+        goal: goal,
+        loggedIn: req.session.loggedIn
+      });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -200,6 +204,7 @@ router.get("/allUsers", async (req, res) => {
   }
 });
 
+
 // Login Home Route
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
@@ -230,7 +235,6 @@ router.get("/goal/:id", async (req, res) => {
           attributes: [
             "id",
             "content",
-            // 'created_at',
           ],
           include: [
             {
@@ -262,16 +266,12 @@ router.get("/user/:id", async (req, res) => {
   try {
     const individualUser = await User.findByPk(req.params.id, {
       include: [
-        // {
-        //   model: User,
-        //   attributes: ["id", "username"],
-        // },
         {
           model: Goal,
           attributes: [
             "id",
             "content",
-            // 'created_at',
+            "completed"
           ],
           include: [
             {

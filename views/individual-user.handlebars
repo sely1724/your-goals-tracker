@@ -1,13 +1,14 @@
  <h3 class="individual-username">{{userGoals.username}}</h3>
 <div class="goal-list"> 
- {{#each userGoals.Goals as |Goal|}}
+ {{#each userGoals.Goals as |goal|}}
  <a href="/goal/{{id}}">
 
     <div class="goals-card">
        <div class="goals-card-body">
-       <p>This is my Goal:
-          {{Goal.content}}
-        </p>
+       <h3>This is my Goal:
+          {{goal.content}}
+          <h4 class= "completed">Completed? {{goal.completed}}</h4>
+        </h3>
           </div>
          </div>
   {{/each}}

@@ -16,23 +16,7 @@
   <!-- TO DO BEFORE COMMITTING ADD CHART JS -->
 </section>
 
-<section class="dash-card card-body">
-    {{#if myUser.Goals.length}} <!-- need to console log and test to get correct name-->
-    <section>
-        <section>  <h3>All Your Blogs:</h3></section>
-            <section class="single-goal">
-        <div class="blog-list">
-      
-            {{#each myUser.Goals as |goal|}}
-            {{> my-goal-details }} 
-            {{/each}}
-        </div>
-          </section>
-        {{/if}}
-    </section>
-</section>
-
-<section class="dash-card card-body">
+<section class="card-body">
      <section class="flex-row justify-center">
     <h4>Post a Goal</h4>
    </section>
@@ -50,7 +34,21 @@
         </form>
     </section>
 
-
+<section class="card-body">
+    {{#if myUser.Goals.length}} <!-- need to console log and test to get correct name-->
+    <section>
+        <section>  <h3>All Your Goals:</h3></section>
+            <section class="single-goal">
+        <div class="blog-list">
+      
+            {{#each myUser.Goals as |goal|}}
+            {{> my-goal-details }} 
+            {{/each}}
+        </div>
+          </section>
+        {{/if}}
+    </section>
+</section>
 
     {{> chart }}
 

@@ -19,6 +19,9 @@ AS A student<br>
 <br>
 So THAT I can stay motivated and inspired
 
+## Screenshots
+![Goalie screenshot](./Assets/goalie.png)
+
 ## Credits
 UW Boot Camp
 
@@ -36,6 +39,18 @@ Some future ideas we have for this application:
 - Adding a chart to track milestones 
 - Adding ability to "friend" piers
 - Privacy settings option to enable making goals public, only able to be seen by friends, or completely private
+- Add a hamburger menu
+
+## Technologies
+- Node.js
+- Sequelize
+- Express
+- MySQL Workbench 
+- Bootstrap
+- Chart.js
+- MVC framework
+- Heroku
+
 
 ## Contact
 
