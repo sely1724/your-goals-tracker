@@ -34,21 +34,7 @@
         </form>
     </section>
 
-<section class="card-body">
-    {{#if myUser.Goals.length}} <!-- need to console log and test to get correct name-->
-    <section>
-        <section>  <h3>All Your Goals:</h3></section>
-            <section class="single-goal">
-        <div class="blog-list">
-      
-            {{#each myUser.Goals as |goal|}}
-            {{> my-goal-details }} 
-            {{/each}}
-        </div>
-          </section>
-        {{/if}}
-    </section>
-</section>
+
 
     {{> chart }}
 
